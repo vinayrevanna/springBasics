@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+	<bean id="triangle" class="org.vinay.learnspring.Triangle5"
+		autowire="byName">
+	</bean>
+	<bean id="pointA" class="org.vinay.learnspring.Point">
+		<property name="X" value="${pointA.pointX}" />  <!-- reading values from a prperties file using beanFacotryPostProcessor -->
+		<property name="Y" value="${pointA.pointY}" />
+	</bean>
+	<bean id="pointB" class="org.vinay.learnspring.Point">
+		<property name="X" value="-20" />
+		<property name="Y" value="0" />
+	</bean>
+	<bean id="pointC" class="org.vinay.learnspring.Point">
+		<property name="X" value="20" />
+		<property name="Y" value="0" />
+	</bean>
+	
+	<bean class="org.vinay.learnspring.DisplayNameBeanPostProcessor"></bean>
+	<bean class="org.vinay.learnspring.MyBeanFactoryPP"></bean>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="pointconfig.properties"></property>
+	</bean>
+</beans>

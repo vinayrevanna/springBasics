@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="triangle" class="org.vinay.learnspring.Triangle"> <!-- use id's always to identify distinct bean because if you use it again 
+			u will get err -->
+		<!-- <property name="pointA" ref="zeroPoint" /> usually "ref" attibute can point to name,alias,id -->
+		<property name="pointA"> 
+			<idref = zeroPoint " /> <!--  if u want only reference to id when use idref tag -->
+			<property name="pointB">
+				<bean class="org.vinay.learnspring.Point"> <!-- inner bean used when it is not used anywhere else no other advantage in speed -->
+					<property name="X" value="-20" />
+					<property name="Y" value="0" />
+				</bean>
+			</property>
+			<property name="pointC">
+				<bean class="org.vinay.learnspring.Point">
+					<property name="X" value="20" />
+					<property name="Y" value="0" />
+				</bean>
+			</property>
+	</bean>
+	<bean id="zeroPoint" class="org.vinay.learnspring.Point">
+		<property name="X" value="0" />
+		<property name="Y" value="0" />
+	</bean>
+
+	<alias name="triangle" alias="triangle-alias"></alias> <!-- other name that can be used with getBean() function for ease of coding -->
+</beans>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+<!--  implementing collections using beans having separate id's-->
+
+	<bean id="triangle" class="org.vinay.learnspring.Triangle">
+		<property name="points">
+		<list>
+			<ref bean="zeroPoint" /> <!-- type conversion is done by spring, small bean to intialize list -->
+			<ref bean="Point2" />
+			<ref bean="Point3" />
+		</list>
+		</property>
+	</bean>
+	<bean id="zeroPoint" class="org.vinay.learnspring.Point"> 
+		 <property name="X" value="0" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="Point2" class="org.vinay.learnspring.Point">
+		 <property name="X" value="-20" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="Point3" class="org.vinay.learnspring.Point">
+		 <property name="X" value="20" />
+		 <property name="Y" value="0" />
+	</bean>
+</beans>

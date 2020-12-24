@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    <!-- <bean id="triangle" class="org.vinay.learnspring.Triangle">
+		 <property name="type" value="Right angled" /> setting values using setter 
+		<constructor-arg value="Right angled"></constructor-arg>  setting values usign constructor
+		 <constructor-arg type="String" value="20"></constructor-arg> 
+		<constructor-arg index="0" value="Right angled"></constructor-arg>  index specifies the order of arguments 
+		 <constructor-arg index="1" value="20"></constructor-arg>  
+	</bean> -->
+	<bean id="triangle" class="org.vinay.learnspring.Triangle1" > <!-- creating a triangle object without new operator and initializing the properties of triangle -->
+		<property name="pointA" ref="zeroPoint" /> 
+		<property name="pointB" ref="Point2" />
+		<property name="pointC" ref="Point3" />
+	</bean>
+	<bean id="zeroPoint" class="org.vinay.learnspring.Point" > <!-- creating a point bean and init it for triangle object -->
+		 <property name="X" value="0" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="Point2" class="org.vinay.learnspring.Point">
+		 <property name="X" value="-20" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="Point3" class="org.vinay.learnspring.Point">
+		 <property name="X" value="20" />
+		 <property name="Y" value="0" />
+	</bean>
+</beans>

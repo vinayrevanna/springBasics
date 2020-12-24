@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- implementing Autowiring -->
+  <!--  <bean id="triangle" class="org.vinay.learnspring.Triangle" autowire="byType"> 
+  <bean id="triangle" class="org.vinay.learnspring.Triangle" autowire="constructor">   byType/constructor is used when u have only one bean of same class, error if more than one bean -->
+    
+<!-- <bean id="triangle" class="org.vinay.learnspring.Triangle" autowire="byName">  implementing Autowiring using attribute name and matching id of beans-->
+
+	
+	<bean id="triangle" class="org.vinay.learnspring.Triangle" autowire="byName">
+	</bean>
+	<bean id="pointA" class="org.vinay.learnspring.Point"> 
+		 <property name="X" value="0" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="pointB" class="org.vinay.learnspring.Point">
+		 <property name="X" value="-20" />
+		 <property name="Y" value="0" />
+	</bean>
+	<bean id="pointC" class="org.vinay.learnspring.Point">
+		 <property name="X" value="20" />
+		 <property name="Y" value="0" />
+	</bean>
+</beans>
